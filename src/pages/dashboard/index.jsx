@@ -3,6 +3,7 @@ import endPoints from '@services/api';
 import Pagination from '../../common/Pagination';
 import { useState } from 'react';
 import { Chart } from '@common/Chart';
+import Products from './products';
 const PRODUCT_LIMIT = 5;
 // const PRODUCT_OFFSET = 5;
 export default function Dashboard() {
@@ -27,7 +28,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <Chart className="mb-8 mt-2" chartData={data} />;{totalProducts > 0 && <Pagination totalItems={totalProducts} itemsPerPage={PRODUCT_LIMIT} neighbours={3} setOffset={setOffset} />}
+      <Chart className="mb-8 mt-2" chartData={data} />
+      <Products />
+      {totalProducts > 0 && <Pagination totalItems={totalProducts} itemsPerPage={PRODUCT_LIMIT} neighbours={3} setOffset={setOffset} />}
     </>
   );
 }
