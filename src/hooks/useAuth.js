@@ -44,8 +44,15 @@ function useProviderAuth() {
     }
   };
 
+  const logout = () => {
+    Cookie.remove('token');
+    setUser(null);
+    window.location.href = '/login';
+  };
+
   return {
     user,
     signIn,
+    logout,
   };
 }
